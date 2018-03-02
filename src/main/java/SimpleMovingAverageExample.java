@@ -29,17 +29,17 @@ public class SimpleMovingAverageExample {
 
 
         if (retCode == RetCode.Success) {
-            System.out.println("Output Begin:" + begin.value);
-            System.out.println("Output End:" + length.value);
+            System.out.println("Output Start Period: " + begin.value);
+            System.out.println("Output End Period: " + (begin.value + length.value - 1));
 
-            for (int i = begin.value; i <= length.value; i++) {
+            for (int i = begin.value; i < begin.value + length.value; i++) {
                 StringBuilder line = new StringBuilder();
                 line.append("Period #");
                 line.append(i);
-                line.append(" close= ");
+                line.append(" close=");
                 line.append(closePrice[i]);
-                line.append(" mov avg=");
-                line.append(out[i-begin.value]);
+                line.append(" mov_avg=");
+                line.append(out[i - begin.value]);
                 System.out.println(line.toString());
             }
         }
